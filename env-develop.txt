@@ -1,0 +1,7 @@
+# Project-wide Configurations
+DEBUG=True 
+# See: https://cryptography.io/en/latest/fernet/ to generate a 32-URL-SAFE-BASE64-ENCODED-BYTES
+SECRET_KEY=pz+lvovvqpahbt%j2$c^3-)bs9*0f-jbg-w2)ekil&&%c-(*_)
+ALLOWED_HOSTS=localhost,127.0.0.1 
+TIME_ZONE=Asia/Kolkata
+LANGUAGE_CODE=en-us 
