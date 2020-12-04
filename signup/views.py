@@ -12,14 +12,14 @@ def user_register(request):
         # return redirect('/home')
     
     if request.method=='POST':
-        regForm=UserCreationForm(request.POST)
-        if regForm.is_valid():
-            regForm.save()
+        form=UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
             email = regForm.cleaned_data['email']
             password = regForm.cleaned_data['password']
             user = authenticate(email = email,password = password)
             login(request, user)
-            return redirect('/home')
+            return redirect('user-login')
         else:
             return render(request, 'registration/register.html', {'form':form})
     else:
@@ -34,9 +34,10 @@ def user_login(request):
         # return redirect('/home')
      
     if request.method == 'POST':
-        username = request.POST['username']
+        print(request.POST)
+        email = request.POST['username']
         password = request.POST['password']
-        user = authenticate(request, username = username, password = password)
+        user = authenticate(request, username = email, password = password)
  
         if user is not None:
             login(request,user)
